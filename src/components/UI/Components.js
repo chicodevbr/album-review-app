@@ -5,6 +5,7 @@ import {
   StyledCardBody,
   StyledGrid,
   StyledImage,
+  StyledSpinner,
   StyledText,
 } from './Components.style';
 
@@ -26,6 +27,10 @@ export const Grid = (props) => {
 
 export const Image = (props) => {
   return <StyledImage {...props}>{props.children}</StyledImage>;
+};
+
+export const Spinner = (props) => {
+  return <StyledSpinner {...props} />;
 };
 
 export const Text = (props) => {

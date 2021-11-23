@@ -2,6 +2,7 @@ import { Box } from '../components/UI/Components';
 import React, { useCallback, useEffect, useState } from 'react';
 import api from '../api';
 import AlbumsList from '../components/Albums/AlbumsList';
+import { SimpleSpinner } from '../components/UI/Spinner';
 
 const Home = () => {
   const [albums, setAlbums] = useState([]);
@@ -49,7 +50,7 @@ const Home = () => {
   }
 
   if (isLoading) {
-    content = <p>Loading...</p>;
+    content = <SimpleSpinner />;
   }
   return <Box>{content}</Box>;
 };

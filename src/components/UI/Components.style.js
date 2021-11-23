@@ -1,4 +1,4 @@
-import { Box, Card, CardBody, Image, Text, Grid } from 'grommet';
+import { Box, Card, CardBody, Image, Text, Grid, Spinner } from 'grommet';
 import styled from 'styled-components';
 
 export const StyledBox = styled(Box)``;
@@ -15,3 +15,5 @@ export const StyledImage = styled(Image)``;
 export const StyledText = styled(Text)``;
 
 export const StyledGrid = styled(Grid)``;
+
+export const StyledSpinner = styled(Spinner)``;
