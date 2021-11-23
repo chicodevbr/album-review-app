@@ -19,7 +19,8 @@ const Home = () => {
       const transformedAlbums = response.data.map((albumData) => {
         return {
           id: albumData.id,
-          name: albumData.artist,
+          name: albumData.name,
+          artist: albumData.artist,
           year: albumData.year,
           producer: albumData.producer,
           sales: albumData.sales,
