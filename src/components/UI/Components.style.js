@@ -31,6 +31,11 @@ export const StyledImage = styled(Image)``;
 
 export const StyledNav = styled(Nav)``;
 
-export const StyledText = styled(Text)``;
+export const StyledText = styled(Text)`
+  white-space: nowrap;
+  width: 170px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
 
 export const StyledSpinner = styled(Spinner)``;
