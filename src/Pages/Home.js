@@ -3,6 +3,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import api from '../api';
 import AlbumsList from '../components/Albums/AlbumsList';
 import { SimpleSpinner } from '../components/UI/Spinner';
+import Sidebar from '../components/Sidebar/Sidebar';
 
 const Home = () => {
   const [albums, setAlbums] = useState([]);
@@ -58,7 +59,7 @@ const Home = () => {
   return (
     <Grid
       rows={['xSmall', 'xSmall']}
-      columns={['xSmall', 'xlarge']}
+      columns={['xSmall', 'large']}
       gap="small"
       areas={[
         { name: 'header', start: [0, 0], end: [1, 0] },
@@ -66,7 +67,9 @@ const Home = () => {
         { name: 'main', start: [1, 1], end: [1, 1] },
       ]}
     >
-      <Box gridArea="nav">Sidebar</Box>
+      <Box gridArea="nav">
+        <Sidebar />
+      </Box>
       <Box gridArea="main">{content}</Box>
     </Grid>
   );
