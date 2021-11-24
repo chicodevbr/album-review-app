@@ -1,4 +1,4 @@
-import { Box } from '../components/UI/Components';
+import { Box, Grid } from '../components/UI/Components';
 import React, { useCallback, useEffect, useState } from 'react';
 import api from '../api';
 import AlbumsList from '../components/Albums/AlbumsList';
@@ -18,7 +18,7 @@ const Home = () => {
 
       const transformedAlbums = response.data.map((albumData) => {
         return {
-          id: albumData.id,
+          id: albumData._id,
           name: albumData.name,
           artist: albumData.artist,
           year: albumData.year,
@@ -53,7 +53,23 @@ const Home = () => {
   if (isLoading) {
     content = <SimpleSpinner />;
   }
-  return <Box>{content}</Box>;
+
+  console.log(albums);
+  return (
+    <Grid
+      rows={['xSmall', 'xSmall']}
+      columns={['xSmall', 'xlarge']}
+      gap="small"
+      areas={[
+        { name: 'header', start: [0, 0], end: [1, 0] },
+        { name: 'nav', start: [0, 1], end: [0, 1] },
+        { name: 'main', start: [1, 1], end: [1, 1] },
+      ]}
+    >
+      <Box gridArea="nav">Sidebar</Box>
+      <Box gridArea="main">{content}</Box>
+    </Grid>
+  );
 };
 
 export default Home;
