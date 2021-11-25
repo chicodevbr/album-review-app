@@ -1,12 +1,12 @@
 import { Card, Text, Image, CardBody } from '../UI/Components';
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { useHistory } from 'react-router';
 
 const AlbumsItems = (props) => {
-  let navigate = useNavigate();
+  const history = useHistory();
 
   const clickHandler = () => {
-    navigate(`/albums/${props.id}`);
+    history.push(`/album/${props.id}`);
   };
 
   return (

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+import { useParams } from 'react-router-dom';
 import api from '../api';
-import DefaultPage from '../templates/DefaultPage';
+import AlbumDetailsList from '../components/AlbumDetails/AlbumDetailsList';
+import { SimpleSpinner } from '../components/UI/Spinner';
 
-const AlbumDetails = () => {
-  const { albumId } = useParams();
+const Album = () => {
   const [album, setAlbum] = useState([]);
+  const { albumId } = useParams();
 
   useEffect(() => {
     getDataById(albumId);
@@ -16,14 +17,11 @@ const AlbumDetails = () => {
       .get(`https://api-album-review.herokuapp.com/albums/${id}`)
       .then((response) => {
         setAlbum(response.data);
-      });
+      })
+      .catch((error) => console.log(error.message));
   };
 
-  return (
-    <DefaultPage>
-      <h1>details</h1>
-    </DefaultPage>
-  );
+  return <AlbumDetailsList items={album} />;
 };
 
-export default AlbumDetails;
+export default Album;

@@ -2,7 +2,7 @@ import { Grommet } from 'grommet';
 import { DocumentText, Home, Iteration, Search } from 'grommet-icons';
 import React from 'react';
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useHistory } from 'react-router';
 
 import { Box, Button, Heading, Nav } from '../UI/Components';
 
@@ -21,23 +21,23 @@ const SidebarButton = ({ label, ...rest }) => (
 
 const Sidebar = () => {
   const [active, setActive] = useState();
-  let navigate = useNavigate();
+  const history = useHistory();
 
   const handleClickRedirectAdd = (item) => {
     if (item === 'Home') {
-      navigate('/');
+      history.push('/');
     }
 
     if (item === 'Search') {
-      navigate('/');
+      history.push('/');
     }
 
     if (item === 'Albums') {
-      navigate('/albums');
+      history.push('/albums');
     }
 
     if (item === 'Reviews') {
-      navigate('/add');
+      history.push('/add');
     }
     setActive(item);
   };
