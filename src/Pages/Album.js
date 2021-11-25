@@ -1,29 +1,61 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import api from '../api';
+import AlbumDetailsList from '../components/AlbumDetails/AlbumDetailsList';
+
+import { SimpleSpinner } from '../components/UI/Spinner';
 import DefaultPage from '../templates/DefaultPage';
 
-const AlbumDetails = () => {
-  const { albumId } = useParams();
-  const [album, setAlbum] = useState([]);
+const Album = () => {
+  const [album, setAlbum] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  useEffect(() => {
-    getDataById(albumId);
+  const { albumId } = useParams();
+
+  const fetchAlbumsHandler = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await api.get(
+        `https://api-album-review.herokuapp.com/albums/${albumId}`
+      );
+
+      const data = response.data;
+
+      setAlbum(data);
+    } catch (error) {
+      setError(error.message);
+    }
+    setIsLoading(false);
   }, [albumId]);
 
-  const getDataById = (id) => {
-    api
-      .get(`https://api-album-review.herokuapp.com/albums/${id}`)
-      .then((response) => {
-        setAlbum(response.data);
-      });
-  };
+  useEffect(() => {
+    fetchAlbumsHandler();
+  }, [fetchAlbumsHandler]);
+
+  console.log(album);
+
+  let content = <p>No albums yet</p>;
+
+  if (album.length > 0) {
+    content = <AlbumDetailsList items={album} />;
+  }
+
+  if (error) {
+    content = <p>{error}</p>;
+  }
+
+  if (isLoading) {
+    content = <SimpleSpinner />;
+  }
 
   return (
     <DefaultPage>
-      <h1>details</h1>
+      <AlbumDetailsList items={album} />
     </DefaultPage>
   );
 };
 
-export default AlbumDetails;
+export default Album;
