@@ -2,16 +2,22 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import App from './App';
+
 import Home from './Pages/Home';
 import AddAlbum from './components/AddAlbum/AddAlbum';
+import AllAlbums from './Pages/AllAlbums';
+import Album from './Pages/Album';
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<App />} />
-      <Route index element={<Home />} />
+      <Route path="/" element={<Home />} />
+
+      <Route path="/albums" element={<AllAlbums />} />
+
       <Route path="/add" element={<AddAlbum />} />
+
+      <Route path="/albums/:albumId" element={<Album />} />
     </Routes>
   </BrowserRouter>,
   document.getElementById('root')

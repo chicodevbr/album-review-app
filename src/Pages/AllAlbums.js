@@ -4,7 +4,7 @@ import AlbumsList from '../components/Albums/AlbumsList';
 import { SimpleSpinner } from '../components/UI/Spinner';
 import DefaultPage from '../templates/DefaultPage';
 
-const Home = () => {
+const AllAlbums = () => {
   const [albums, setAlbums] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -57,4 +57,4 @@ const Home = () => {
   return <DefaultPage>{content}</DefaultPage>;
 };
 
-export default Home;
+export default AllAlbums;

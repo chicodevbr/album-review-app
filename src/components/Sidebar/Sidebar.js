@@ -33,6 +33,10 @@ const Sidebar = () => {
     }
 
     if (item === 'Albums') {
+      navigate('/albums');
+    }
+
+    if (item === 'Reviews') {
       navigate('/add');
     }
     setActive(item);

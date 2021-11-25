@@ -17,6 +17,7 @@ export const StyledBox = styled(Box)``;
 export const StyledCard = styled(Card)`
   width: 200px;
   height: 280px;
+  cursor: pointer;
 `;
 
 export const StyledButton = styled(Button)``;
