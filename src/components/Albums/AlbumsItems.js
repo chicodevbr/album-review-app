@@ -1,4 +1,4 @@
-import { Card, Text, Image, CardBody } from '../UI/Components';
+import { Card, Text, Image, CardBody, TextEllipsis } from '../UI/Components';
 import React from 'react';
 import { useNavigate } from 'react-router';
 
@@ -13,7 +13,7 @@ const AlbumsItems = (props) => {
     <Card onClick={clickHandler}>
       <Image src={props.image} />
       <CardBody pad="small">
-        <Text size="medium">{props.name}</Text>
+        <TextEllipsis size="medium">{props.name}</TextEllipsis>
         <Text size="small">{props.artist}</Text>
       </CardBody>
     </Card>

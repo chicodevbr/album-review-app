@@ -7,9 +7,11 @@ import {
   StyledGrid,
   StyledHeading,
   StyledImage,
+  StyledMain,
   StyledNav,
   StyledSpinner,
   StyledText,
+  StyledTextEllipsis,
 } from './Components.style';
 
 export const Box = (props) => {
@@ -40,12 +42,20 @@ export const Image = (props) => {
   return <StyledImage {...props}>{props.children}</StyledImage>;
 };
 
+export const Main = (props) => {
+  return <StyledMain {...props}>{props.children}</StyledMain>;
+};
+
 export const Nav = (props) => {
   return <StyledNav {...props}>{props.children}</StyledNav>;
 };
 
 export const Spinner = (props) => {
   return <StyledSpinner {...props} />;
+};
+
+export const TextEllipsis = (props) => {
+  return <StyledTextEllipsis {...props}>{props.children}</StyledTextEllipsis>;
 };
 
 export const Text = (props) => {

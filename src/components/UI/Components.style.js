@@ -9,6 +9,7 @@ import {
   Spinner,
   Nav,
   Button,
+  Main,
 } from 'grommet';
 import styled from 'styled-components';
 
@@ -30,13 +31,17 @@ export const StyledHeading = styled(Heading)``;
 
 export const StyledImage = styled(Image)``;
 
+export const StyledMain = styled(Main)``;
+
 export const StyledNav = styled(Nav)``;
 
-export const StyledText = styled(Text)`
+export const StyledTextEllipsis = styled(Text)`
   white-space: nowrap;
   width: 170px;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
+
+export const StyledText = styled(Text)``;
 
 export const StyledSpinner = styled(Spinner)``;
