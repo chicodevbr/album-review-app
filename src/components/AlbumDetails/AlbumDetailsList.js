@@ -6,7 +6,11 @@ const AlbumDetailsList = (props) => {
   const { items } = props;
   return (
     <Box>
-      <AlbumDetailsItem key={items._id} name={items.name} />
+      <AlbumDetailsItem
+        key={items._id}
+        name={items.name}
+        image={items.imgUrl}
+      />
     </Box>
   );
 };
