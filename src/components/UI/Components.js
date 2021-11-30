@@ -9,9 +9,11 @@ import {
   StyledImage,
   StyledMain,
   StyledNav,
+  StyledParagraph,
   StyledSpinner,
   StyledText,
   StyledTextEllipsis,
+  StyledWrap,
 } from './Components.style';
 
 export const Box = (props) => {
@@ -42,6 +44,10 @@ export const Image = (props) => {
   return <StyledImage {...props}>{props.children}</StyledImage>;
 };
 
+export const Paragraph = (props) => {
+  return <StyledParagraph {...props}>{props.children}</StyledParagraph>;
+};
+
 export const Main = (props) => {
   return <StyledMain {...props}>{props.children}</StyledMain>;
 };
@@ -60,4 +66,8 @@ export const TextEllipsis = (props) => {
 
 export const Text = (props) => {
   return <StyledText {...props}>{props.children}</StyledText>;
+};
+
+export const Wrap = (props) => {
+  return <StyledWrap {...props}>{props.children}</StyledWrap>;
 };
