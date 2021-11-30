@@ -8,6 +8,7 @@ const AlbumDetailsList = (props) => {
     <AlbumDetailsItem
       key={items._id}
       name={items.name}
+      description={items.description}
       image={items.imgUrl}
       artist={items.artist}
       year={items.year}
