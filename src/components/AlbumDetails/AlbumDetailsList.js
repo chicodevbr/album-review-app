@@ -12,6 +12,7 @@ const AlbumDetailsList = (props) => {
       image={items.imgUrl}
       artist={items.artist}
       year={items.year}
+      label={items.label}
       producer={items.producer}
     />
   );
