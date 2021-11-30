@@ -21,6 +21,7 @@ const AddAlbum = () => {
             initialValues={{
               name: '',
               artist: '',
+              description: '',
               year: '',
               producer: '',
               imgUrl: '',
@@ -44,6 +45,14 @@ const AddAlbum = () => {
                     name="artist"
                     placeholder="type artist name here"
                     value={values.artist}
+                    onChange={handleChange}
+                  />
+                </FormField>
+                <FormField label="Description" htmlFor="description">
+                  <TextInput
+                    id="description"
+                    name="description"
+                    value={values.description}
                     onChange={handleChange}
                   />
                 </FormField>
