@@ -7,7 +7,7 @@ import { SimpleSpinner } from '../components/UI/Spinner';
 import DefaultPage from '../templates/DefaultPage';
 
 const Album = () => {
-  const [album, setAlbum] = useState({});
+  const [album, setAlbum] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -34,21 +34,20 @@ const Album = () => {
   useEffect(() => {
     fetchAlbumsHandler();
   }, [fetchAlbumsHandler]);
-
-  console.log(album);
-
-  let content = <p>No albums yet</p>;
-
-  if (album.length > 0) {
-    content = <AlbumDetailsList items={album} />;
+  if (isLoading) {
+    return (
+      <DefaultPage>
+        <SimpleSpinner />
+      </DefaultPage>
+    );
   }
 
   if (error) {
-    content = <p>{error}</p>;
-  }
-
-  if (isLoading) {
-    content = <SimpleSpinner />;
+    return (
+      <DefaultPage>
+        <p>{error}</p>
+      </DefaultPage>
+    );
   }
 
   return (
