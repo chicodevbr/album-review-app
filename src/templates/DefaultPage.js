@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Grid } from '../components/UI/Components';
 import Sidebar from '../components/Sidebar/Sidebar';
+import { HeaderBar } from '../components/Header/Header';
 
 const DefaultPage = (props) => {
   return (
@@ -14,6 +15,9 @@ const DefaultPage = (props) => {
         { name: 'main', start: [1, 1], end: [1, 1] },
       ]}
     >
+      <Box gridArea="header">
+        <HeaderBar />
+      </Box>
       <Box gridArea="nav">
         <Sidebar />
       </Box>
