@@ -4,7 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import { Box, Button, Heading, Nav } from '../UI/Components';
+import { Box, Button, Nav } from '../UI/Components';
 
 const theme = {
   button: {
@@ -46,7 +46,7 @@ const Sidebar = () => {
     <Grommet theme={theme}>
       <Box fill direction="row">
         <Nav>
-          <Heading size="small">Review</Heading>
+          {/* <Heading size="small">Review</Heading> */}
           {[
             {
               label: 'Home',
