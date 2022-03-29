@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import api from '../api';
+import { getRequest } from '../fetch';
+import url from '../fetch/urls';
 import AlbumsList from '../components/Albums/AlbumsList';
 import { SimpleSpinner } from '../components/UI/Spinner';
 import DefaultPage from '../templates/DefaultPage';
@@ -14,7 +15,7 @@ const AllAlbums = () => {
     setError(null);
 
     try {
-      const response = await api.get('albums');
+      const response = await getRequest(url.albums);
 
       const transformedAlbums = response.data.map((albumData) => {
         return {
@@ -30,6 +31,7 @@ const AllAlbums = () => {
       });
 
       setAlbums(transformedAlbums);
+      console.log(response);
     } catch (error) {
       setError(error.message);
     }

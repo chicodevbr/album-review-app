@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import api from '../api';
+import { getRequest } from '../fetch';
+import urls from '../fetch/urls';
 import AlbumsList from '../components/Albums/AlbumsList';
 import { SimpleSpinner } from '../components/UI/Spinner';
 import DefaultPage from '../templates/DefaultPage';
@@ -14,7 +15,7 @@ const Home = () => {
     setError(null);
 
     try {
-      const response = await api.get('albums');
+      const response = await getRequest(urls.albums);
 
       const transformedAlbums = response.data.map((albumData) => {
         return {

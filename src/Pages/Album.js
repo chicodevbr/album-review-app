@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import api from '../api';
+import { getRequest } from '../fetch';
+import url from '../fetch/urls';
 import AlbumDetailsList from '../components/AlbumDetails/AlbumDetailsList';
 
 import { SimpleSpinner } from '../components/UI/Spinner';
@@ -18,9 +19,7 @@ const Album = () => {
     setError(null);
 
     try {
-      const response = await api.get(
-        `https://api-album-review.herokuapp.com/albums/${albumId}`
-      );
+      const response = await getRequest(`${url.albums}${albumId}`);
 
       const data = response.data;
 
