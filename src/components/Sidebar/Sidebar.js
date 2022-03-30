@@ -44,9 +44,8 @@ const Sidebar = () => {
 
   return (
     <Grommet theme={theme}>
-      <Box fill direction="row">
+      <Box direction="row">
         <Nav>
-          {/* <Heading size="small">Review</Heading> */}
           {[
             {
               label: 'Home',

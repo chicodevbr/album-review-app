@@ -15,10 +15,9 @@ const AlbumsList = (props) => {
   return (
     <Box
       direction="row-responsive"
-      justify="center"
+      justify="start"
       align="center"
       gap="medium"
-      pad="xlarge"
       wrap="true"
     >
       {props.items.map((album) => {

@@ -2,13 +2,14 @@ import React from 'react';
 import { Box, Grid } from '../components/UI/Components';
 import Sidebar from '../components/Sidebar/Sidebar';
 import { HeaderBar } from '../components/Header/Header';
+import { Main } from 'grommet';
 
 const DefaultPage = (props) => {
   return (
     <Grid
       rows={['xSmall', 'xSmall']}
       columns={['xSmall', 'large']}
-      gap="small"
+      gap="large"
       areas={[
         { name: 'header', start: [0, 0], end: [1, 0] },
         { name: 'nav', start: [0, 1], end: [0, 1] },
@@ -21,7 +22,9 @@ const DefaultPage = (props) => {
       <Box gridArea="nav">
         <Sidebar />
       </Box>
-      <Box gridArea="main">{props.children}</Box>
+      <Box gridArea="main">
+        <Main>{props.children}</Main>
+      </Box>
     </Grid>
   );
 };

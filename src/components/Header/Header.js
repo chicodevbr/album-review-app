@@ -5,7 +5,11 @@ export const HeaderBar = () => {
   return (
     <Header background="dark-2" pad="medium">
       <Anchor href="/" size="xxlarge" label="Album Review" />
-      <Menu label="account" items={[{ label: 'logout' }]} />
+
+      <Menu
+        label="account"
+        items={[{ label: 'logout' }, { label: 'login' }, { label: 'signup' }]}
+      />
     </Header>
   );
 };
