@@ -7,6 +7,7 @@ import Home from './Pages/Home';
 import AddAlbum from './components/AddAlbum/AddAlbum';
 import AllAlbums from './Pages/AllAlbums';
 import Album from './Pages/Album';
+import Signup from './Pages/Signup';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -16,6 +17,8 @@ ReactDOM.render(
       <Route path="/albums" element={<AllAlbums />} />
 
       <Route path="/add" element={<AddAlbum />} />
+
+      <Route path="/signup" element={<Signup />} />
 
       <Route path="/albums/:albumId" element={<Album />} />
     </Routes>
