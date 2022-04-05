@@ -1,23 +1,41 @@
-import { Box, Button, Form, FormField, TextInput } from 'grommet';
+import {
+  Box,
+  Button,
+  Form,
+  FormField,
+  Heading,
+  Text,
+  TextInput,
+} from 'grommet';
 import { Formik } from 'formik';
 import { postRequest } from '../fetch';
 import url from '../fetch/urls';
 import React from 'react';
-import DefaultPage from '../templates/DefaultPage';
+import { useNavigate } from 'react-router';
 
 const Signup = () => {
+  let navigate = useNavigate();
   const handleSendSubmit = (values) => {
     postRequest(url.signup, values)
-      .then((response) => console.log(response))
+      .then((response) => {
+        localStorage.setItem('token', response.token);
+        console.log(response);
+      })
       .catch((error) => console.log(error));
-    console.log(values);
+    //navigate(`/login`);
   };
 
   return (
-    <DefaultPage>
-      <Box fill>
+    <>
+      <Box align="center" justify="center" pad="medium">
+        <Heading>
+          <Text size="large" align="center">
+            Signup
+          </Text>
+        </Heading>
+
         <Box
-          align="start"
+          align="center"
           justify="center"
           border
           gap="medium"
@@ -29,6 +47,7 @@ const Signup = () => {
               name: '',
               email: '',
               password: '',
+              confirmPassword: '',
             }}
             onSubmit={handleSendSubmit}
           >
@@ -56,6 +75,14 @@ const Signup = () => {
                     type="password"
                   />
                 </FormField>
+                <FormField label="Confirm Password" name="confirmPassword">
+                  <TextInput
+                    name="confirmPassword"
+                    value={values.confirmPassword}
+                    onChange={handleChange}
+                    type="password"
+                  />
+                </FormField>
                 <Box
                   direction="row"
                   justify="between"
@@ -74,7 +101,7 @@ const Signup = () => {
           </Formik>
         </Box>
       </Box>
-    </DefaultPage>
+    </>
   );
 };
 
