@@ -13,6 +13,7 @@ import AddAlbum from './components/AddAlbum/AddAlbum';
 import AllAlbums from './Pages/AllAlbums';
 import Album from './Pages/Album';
 import Signup from './Pages/Signup';
+import Login from './Pages/Login';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -27,6 +28,8 @@ ReactDOM.render(
         <Route path="/add" element={<AddAlbum />} />
 
         <Route path="/signup" element={<Signup />} />
+
+        <Route path="/login" element={<Login />} />
 
         <Route path="/albums/:albumId" element={<Album />} />
       </Routes>
