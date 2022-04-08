@@ -8,21 +8,25 @@ import {
   TextInput,
 } from 'grommet';
 import { Formik } from 'formik';
-import { postRequest } from '../fetch';
-import url from '../fetch/urls';
+
 import React from 'react';
 import { useNavigate } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { signUp } from '../store/actions/authActions';
 
 const Signup = () => {
   let navigate = useNavigate();
+
+  const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth);
+
   const handleSendSubmit = (values) => {
-    postRequest(url.signup, values)
-      .then((response) => {
-        localStorage.setItem('token', response.token);
-        console.log(response);
-      })
-      .catch((error) => console.log(error));
-    //navigate(`/login`);
+    dispatch(signUp(values));
+
+    if (auth._id) {
+      return navigate(`/login`);
+    }
   };
 
   return (
