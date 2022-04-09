@@ -2,6 +2,11 @@ import axios from 'axios';
 
 const axiosClient = axios.create();
 
+axiosClient.defaults.headers = {
+  'Content-Type': 'application/json',
+  Accept: 'application/json',
+};
+
 export function getRequest(URL, payload) {
   return axiosClient.get(URL, payload).then((response) => response);
 }

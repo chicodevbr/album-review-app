@@ -8,11 +8,22 @@ import {
   TextInput,
 } from 'grommet';
 import { Formik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
 
-import React from 'react';
+import { login } from '../store/actions/authActions';
+import { useNavigate } from 'react-router-dom';
+
 const Login = () => {
+  let navigate = useNavigate();
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   const handleSendSubmit = (values) => {
-    console.log(values);
+    dispatch(login(values));
+
+    if (auth._id) {
+      return navigate(`/`);
+    }
   };
 
   return (
@@ -36,7 +47,6 @@ const Login = () => {
             initialValues={{
               email: '',
               password: '',
-              confirmPassword: '',
             }}
             onSubmit={handleSendSubmit}
           >
