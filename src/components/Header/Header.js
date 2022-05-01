@@ -1,15 +1,12 @@
 import React from 'react';
-import { Header, Menu, Anchor } from 'grommet';
+import { Header, Anchor } from 'grommet';
+import HeaderMenuProfile from './HeaderMenuProfile';
 
 export const HeaderBar = () => {
   return (
     <Header background="dark-2" pad="medium">
       <Anchor href="/" size="xxlarge" label="Album Review" />
-
-      <Menu
-        label="account"
-        items={[{ label: 'logout' }, { label: 'login' }, { label: 'signup' }]}
-      />
+      <HeaderMenuProfile />
     </Header>
   );
 };
