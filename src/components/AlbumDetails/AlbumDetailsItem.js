@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Box, Heading, Image, Paragraph, Text } from '../UI/Components';
 
 const AlbumDetailsItem = (props) => {
@@ -12,14 +13,14 @@ const AlbumDetailsItem = (props) => {
           </Box>
           <Box width="large">
             <Paragraph>{props.description}</Paragraph>
+            <Box pad="small">
+              {/* <Text size={'large'}>{props.artist}</Text> */}
+              <Text size={'medium'}>Release: {props.year}</Text>
+              <Text size={'medium'}>Producer: {props.producer}</Text>
+              <Text size={'medium'}>Label: {props.label}</Text>
+            </Box>
           </Box>
         </Box>
-      </Box>
-      <Box pad="small">
-        <Text size={'large'}>{props.artist}</Text>
-        <Text size={'medium'}>Release: {props.year}</Text>
-        <Text size={'medium'}>Producer: {props.producer}</Text>
-        <Text size={'medium'}>Label: {props.label}</Text>
       </Box>
     </Box>
   );

@@ -6,9 +6,12 @@ import AlbumDetailsList from '../components/AlbumDetails/AlbumDetailsList';
 
 import { SimpleSpinner } from '../components/UI/Spinner';
 import DefaultPage from '../templates/DefaultPage';
+import ReviewsList from '../components/Reviews/ReviewsList';
+import { Text } from 'grommet';
 
 const Album = () => {
   const [album, setAlbum] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -30,9 +33,21 @@ const Album = () => {
     setIsLoading(false);
   }, [albumId]);
 
+  const fetchReviewsHandler = useCallback(async () => {
+    try {
+      const response = await getRequest(`${url.reviews}album/${albumId}`);
+
+      const data = response.data;
+      setReviews(data);
+    } catch (error) {
+      setError(error.message);
+    }
+  }, [albumId]);
+
   useEffect(() => {
     fetchAlbumsHandler();
-  }, [fetchAlbumsHandler]);
+    fetchReviewsHandler();
+  }, [fetchAlbumsHandler, fetchReviewsHandler]);
   if (isLoading) {
     return (
       <DefaultPage>
@@ -52,6 +67,8 @@ const Album = () => {
   return (
     <DefaultPage>
       <AlbumDetailsList items={album} />
+      <Text size="large">Reviews</Text>
+      <ReviewsList items={reviews} />
     </DefaultPage>
   );
 };
