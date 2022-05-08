@@ -1,5 +1,6 @@
-import { Box, Button, Heading, Paragraph, Text } from 'grommet';
-import { Favorite, ShareOption } from 'grommet-icons';
+import { Box, Heading, Paragraph, Text } from 'grommet';
+
+import SocialPostBar from '../Shared/SocialPostBar';
 
 const ReviewDetailItem = (props) => {
   return (
@@ -8,16 +9,7 @@ const ReviewDetailItem = (props) => {
       <Text>By {props.author} </Text>
 
       <Paragraph fill>{props.post}</Paragraph>
-      <Box direction="row">
-        <Box pad="small" justify="center" align="center">
-          <Button icon={<Favorite color="status-critical" />}></Button>
-          <Text size="small">{props.like}</Text>
-        </Box>
-        <Box pad="small" justify="center" align="center">
-          <Button icon={<ShareOption />}></Button>
-          <Text size="small">Share</Text>
-        </Box>
-      </Box>
+      <SocialPostBar likes={props.likes} />
     </Box>
   );
 };
