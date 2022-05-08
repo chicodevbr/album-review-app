@@ -37,7 +37,7 @@ ReactDOM.render(
 
         <Route path="/albums/:albumId" element={<Album />} />
 
-        <Route path="/review" element={<ReviewDetail />} />
+        <Route path="/review/:reviewId" element={<ReviewDetail />} />
       </Routes>
     </BrowserRouter>
   </Provider>,
