@@ -16,6 +16,7 @@ import Signup from './Pages/Signup';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
 import ReviewDetail from './Pages/ReviewDetail';
+import AddReview from './components/AddReview/AddReview';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -27,13 +28,15 @@ ReactDOM.render(
 
         <Route path="/albums" element={<AllAlbums />} />
 
-        <Route path="/add" element={<AddAlbum />} />
+        <Route path="/album/add" element={<AddAlbum />} />
 
         <Route path="/signup" element={<Signup />} />
 
         <Route path="/login" element={<Login />} />
 
         <Route path="/profile" element={<Profile />} />
+
+        <Route path="/review/add/:albumId" element={<AddReview />} />
 
         <Route path="/albums/:albumId" element={<Album />} />
 
