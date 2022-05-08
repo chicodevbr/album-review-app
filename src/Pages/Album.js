@@ -7,7 +7,6 @@ import AlbumDetailsList from '../components/AlbumDetails/AlbumDetailsList';
 import { SimpleSpinner } from '../components/UI/Spinner';
 import DefaultPage from '../templates/DefaultPage';
 import ReviewsList from '../components/Reviews/ReviewsList';
-import { Text } from 'grommet';
 
 const Album = () => {
   const [album, setAlbum] = useState([]);
@@ -67,8 +66,8 @@ const Album = () => {
   return (
     <DefaultPage>
       <AlbumDetailsList items={album} />
-      <Text size="large">Reviews</Text>
-      <ReviewsList items={reviews} />
+
+      <ReviewsList items={reviews} albumId={albumId} />
     </DefaultPage>
   );
 };

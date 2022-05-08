@@ -11,12 +11,13 @@ const ReviewsList = (props) => {
   }
 
   return (
-    <Box>
+    <Box gap="large">
       {props.items.map((review) => {
         return (
           <ReviewsItems
             key={review._id}
             id={review._id}
+            albumId={props.albumId}
             title={review.title}
             author={review.author}
             post={review.post}
