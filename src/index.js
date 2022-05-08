@@ -15,6 +15,7 @@ import Album from './Pages/Album';
 import Signup from './Pages/Signup';
 import Login from './Pages/Login';
 import Profile from './Pages/Profile';
+import ReviewDetail from './Pages/ReviewDetail';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -35,6 +36,8 @@ ReactDOM.render(
         <Route path="/profile" element={<Profile />} />
 
         <Route path="/albums/:albumId" element={<Album />} />
+
+        <Route path="/review" element={<ReviewDetail />} />
       </Routes>
     </BrowserRouter>
   </Provider>,
