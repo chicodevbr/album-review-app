@@ -7,7 +7,7 @@ const ReviewsItems = (props) => {
   let navigate = useNavigate();
 
   const clickHandler = () => {
-    navigate(`/reviews/${props.id}`);
+    navigate(`/review/${props.id}`);
   };
 
   return (
