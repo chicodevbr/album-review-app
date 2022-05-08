@@ -15,8 +15,8 @@ const ReviewsList = (props) => {
       {props.items.map((review) => {
         return (
           <ReviewsItems
-            key={review.id}
-            id={review.id}
+            key={review._id}
+            id={review._id}
             title={review.title}
             author={review.author}
             post={review.post}
